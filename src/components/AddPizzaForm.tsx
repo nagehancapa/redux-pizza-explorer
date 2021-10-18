@@ -1,5 +1,5 @@
 // src/components/AddPizzaForm.js
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPizza } from "../store/pizzas/actions";
 
@@ -9,7 +9,7 @@ export default function AddPizzaForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
-  const submit = event => {
+  const submit = (event: FormEvent<HTMLFormElement>) => {
     // to make sure that the form does not redirect (which is normal browser behavior)
     event.preventDefault();
 
@@ -33,7 +33,7 @@ export default function AddPizzaForm() {
           <input
             type="text"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
       </p>
@@ -43,7 +43,7 @@ export default function AddPizzaForm() {
           <input
             type="text"
             value={description}
-            onChange={e => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </label>
       </p>

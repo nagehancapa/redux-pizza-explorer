@@ -7,6 +7,7 @@ import {
   selectRestaurants,
   selectRestaurantsThatSellPizza,
 } from "../store/restaurants/selectors";
+import { Pizza } from "../store/pizzas/types";
 
 export default function RestaurantList() {
   const restaurants = useSelector(selectRestaurants);
@@ -32,11 +33,11 @@ export default function RestaurantList() {
         What does{" "}
         <select
           value={selectedRestaurant}
-          onChange={e => {
+          onChange={(e) => {
             setSelectedRestaurant(parseInt(e.target.value));
           }}
         >
-          {restaurants.map(restaurant => (
+          {restaurants.map((restaurant) => (
             <option key={restaurant.id} value={restaurant.id}>
               {restaurant.name}
             </option>
@@ -45,7 +46,7 @@ export default function RestaurantList() {
         sell?
       </h2>
       <ul>
-        {pizzasSoldBySelectedRestaurant.map(pizza => (
+        {pizzasSoldBySelectedRestaurant.map((pizza: Pizza) => (
           <li key={pizza.id}>{pizza.name}</li>
         ))}
       </ul>
@@ -54,11 +55,11 @@ export default function RestaurantList() {
         Who sells{" "}
         <select
           value={selectedPizza}
-          onChange={e => {
+          onChange={(e) => {
             setSelectedPizza(parseInt(e.target.value));
           }}
         >
-          {pizzas.map(pizza => (
+          {pizzas.map((pizza) => (
             <option key={pizza.id} value={pizza.id}>
               {pizza.name}
             </option>
@@ -67,7 +68,7 @@ export default function RestaurantList() {
         ?
       </h2>
       <ul>
-        {restaurantsThatSellSelectedPizza.map(restaurant => (
+        {restaurantsThatSellSelectedPizza.map((restaurant) => (
           <li key={restaurant.id}>{restaurant.name}</li>
         ))}
       </ul>

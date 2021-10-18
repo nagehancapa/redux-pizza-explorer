@@ -1,5 +1,7 @@
-// src/store/pizzas/reducer.js
-const initialState = {
+// src/store/pizzas/reducer.ts
+import { PizzasState, PizzasAction } from "./types";
+
+const initialState: PizzasState = {
   allPizzas: [
     {
       id: 161235,
@@ -31,7 +33,7 @@ const initialState = {
   ],
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = initialState, action: PizzasAction) {
   switch (action.type) {
     case "pizzas/add": {
       return {
@@ -43,6 +45,8 @@ export default function reducer(state = initialState, action) {
             name: action.payload.name,
             description: action.payload.description,
             bought: 0,
+            image:
+              "https://uncutrecipes.com/Images-Recipes-Italian/Pizza-alla-Napoletana-with-Mozzarella-Cheese.jpg",
           },
         ],
       };

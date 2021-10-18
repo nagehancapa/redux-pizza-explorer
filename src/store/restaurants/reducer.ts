@@ -1,5 +1,7 @@
 // src/store/restaurants/reducer.js
-const initialState = {
+import { RestaurantsState, RestaurantsAction } from "./types";
+
+const initialState: RestaurantsState = {
   allRestaurants: [
     {
       name: "Sotto Pizza",
@@ -24,7 +26,10 @@ const initialState = {
   ],
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(
+  state = initialState,
+  action: RestaurantsAction
+) {
   switch (action.type) {
     default: {
       return state;
